@@ -61,9 +61,7 @@ $(document).ready(function() {
     $('#body_temperature').text(temperature + "\u00B0" + "C");
 
     // Update temperature every 20 seconds
-    setTimeout(function() {
-      fetchData();
-    }, 20000);
+    temperatureInterval = setTimeout(updateTemperature, 20000, temperature);
   }
 
   // Function to update the heart rate in the UI
@@ -71,9 +69,7 @@ $(document).ready(function() {
     $('#heart_rate').text(heartRate + "BPM");
 
     // Update heart rate every 1 minute
-    setTimeout(function() {
-      fetchData();
-    }, 60000);
+    heartRateInterval = setTimeout(updateHeartRate, 60000, heartRate);
   }
 
   // Function to update the location in the UI
@@ -86,8 +82,6 @@ $(document).ready(function() {
     $('#longitude').text(newLongitude.toFixed(6));
 
     // Update location every 15 seconds
-    setTimeout(function() {
-      updateLocation(newLatitude, newLongitude);
-    }, 15000);
+    locationInterval = setTimeout(updateLocation, 15000, newLatitude, newLongitude);
   }
 });
