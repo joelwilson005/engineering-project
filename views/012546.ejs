@@ -7,6 +7,12 @@
     <title>John smith </title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/styles.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <style>
+        .progress-bar {
+        background-color: blue;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,38 +39,53 @@
             </div>
         </div>
     </div>
-    <div class="container py-4 py-xl-5">
+
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col"><button class="btn btn-primary" type="button" id="button">Fetch Health Data</button></div>
+        </div>
+
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+          </div>
+    </div>
+
+
+    <div class="container py-4 py-xl-5" id="stats-container">
         <div class="text-center text-white-50 bg-primary border rounded border-0 p-3">
             <h1>Vital Statistics</h1>
             <div class="row row-cols-2 row-cols-md-4">
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">0</h4>
-                        <p class="mb-0">Temperate</p>
+                        <h4 class="display-5 fw-bold text-white mb-0" id="body_temperature">0</h4>
+                        <p class="mb-0">Temperature</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">0</h4>
+                        <h4 class="display-5 fw-bold text-white mb-0"id="latitude">0</h4>
                         <p class="mb-0">Latitude</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">0</h4>
+                        <h4 class="display-5 fw-bold text-white mb-0"id="longitude">0</h4>
                         <p class="mb-0">Longitude</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="p-3">
-                        <h4 class="display-5 fw-bold text-white mb-0">0</h4>
-                        <p class="mb-0">DateTime:&nbsp;</p>
+                        <h4 class="display-5 fw-bold text-white mb-0"id="heart_rate">0</h4>
+                        <p class="mb-0">Heart Rate:&nbsp;</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="javascripts/jquery.js"></script>
     <script src="javascripts/data-fetch.js"></script>
 </body>
 

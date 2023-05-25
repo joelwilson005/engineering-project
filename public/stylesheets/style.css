@@ -6,3 +6,25 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+#progress-bar-container {
+  width: 200px;
+  height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin-top: 10px;
+  display: none;
+}
+
+#progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: #2196f3;
+  border-radius: 4px;
+}
+
+
+#stats-container {
+  display: none;
+}

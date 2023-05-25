@@ -2,6 +2,7 @@ var express = require('express');
 
 var router = express.Router();
 
+
 router.get('/', (req, res) => {
     res.render('index')
 })
@@ -22,13 +23,6 @@ router.get('/police-clarendon', (req, res) => {
 router.get('/012546', (req, res) => {
     res.render('012546')
 })
-
-
-
-
-
-// Get data from API and render it on webpage. 
-
 
 
 
