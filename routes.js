@@ -29,7 +29,6 @@ router.get('/012546', (req, res) => {
 
 // Get data from API and render it on webpage. 
 
-var apiUrl = ""
 
 
 
