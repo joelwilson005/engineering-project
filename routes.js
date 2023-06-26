@@ -40,9 +40,6 @@ const HealthData = mongoose.model("HealthData", {
 let date = Date.now();
 
 router.post('/api/send', (req, res) => {
-    console.log(req.body);
-    //res.sendStatus(201);
-
     var hd = new HealthData({
         temperature: req.body.temperature,
         heartrate:req.body.heartrate,
@@ -59,6 +56,11 @@ router.post('/api/send', (req, res) => {
     }).catch((err) => {
         console.log(err);
     });
+})
+
+//Fetch the latest record in the DB and return it in JSON format. 
+router.get('/api/fetch', (req, res) => {
+
 })
 
 
