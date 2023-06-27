@@ -2,7 +2,7 @@ $('#data-container').hide();
 
 function fetchData() {
   $.ajax({
-    url: "http://localhost:3000/api/fetch",
+    url: "https://engineering-final-project.onrender.com/api/fetch",
     method: "GET",
     dataType: "JSON",
     success: function (response) {
