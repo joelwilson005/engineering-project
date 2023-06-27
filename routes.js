@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 
 //Routes that refer to templates.
@@ -40,28 +41,39 @@ const HealthData = mongoose.model("HealthData", {
 let date = Date.now();
 
 router.post('/api/send', (req, res) => {
+   
     var hd = new HealthData({
         temperature: req.body.temperature,
         heartrate:req.body.heartrate,
         humidity: req.body.humidity,
         lat: req.body.lat,
         lng: req.body.lng,
-        dateTime: date
+        dateTime: Date.now()
     });
 
     
     //Save the JSON object to the MongoDB database. 
     hd.save().then(() => {
-        res.sendStatus(200)
+        res.sendStatus(200);
     }).catch((err) => {
         console.log(err);
     });
 })
 
 //Fetch the latest record in the DB and return it in JSON format. 
-router.get('/api/fetch', (req, res) => {
-
-})
+router.get('/api/fetch',  cors(), async (req, res) => {
+    try {
+      const latestDocument = await HealthData.findOne().sort({ dateTime: -1 }).exec();
+  
+      if (!latestDocument) {
+        return res.status(404).json({ message: 'No documents found' });
+      }
+      res.header('Access-Control-Allow-Credentials', true);
+      res.json(latestDocument);
+    } catch (error) {
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
 
 
 

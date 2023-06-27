@@ -7,8 +7,14 @@ var bodyParser = require('body-parser');
 var routes = require('./routes');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var cors = require('cors')
 
 var app = express();
+app.use(cors({
+  origin: '*',
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+ }
+));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -23,8 +29,6 @@ app.use(express.static('public'));
 
 // Middleware configuration
 app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
